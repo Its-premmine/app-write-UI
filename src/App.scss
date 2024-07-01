@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+
+*,*::after,*::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+
+    font-family: "Poppins", sans-serif;
+
+}
+
+.mainbody{
+    height: 95vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+
+}
+
+.contantdiv{
+    margin: 0;
+    padding: 0;
+    width: 30%;
+}
+
+.myacctitle{
+    text-align: center;
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.spandiv{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+
+    color: gray
+}
+
+
+
+.signinbox{
+    
+    cursor: pointer;
+    // margin-right: 130px;
+    font-size: 20px;
+    font-weight: 600;
+    
+}
+
+// .signinbox::after {
+//     content: '';
+//     position: absolute;
+//     width: 100%;
+//     transform: scaleX(0);
+//     height: 2px;
+//     bottom: 0;
+//     left: 0;
+//     background-color: hsl(203, 36%, 4%);
+//     transform-origin: bottom right;
+//     transition: transform 0.25s ease-out;
+//   }
+  
+//   .signinbox:hover::after {
+//     transform: scaleX(1);
+//     transform-origin: bottom left;
+//   }
+
+.gray{
+    color: rgb(0, 0, 0);
+}
+
+.creatacc{
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 20px;
+    
+}
+
+
+.inputField{
+    width: 100%;
+    height: 25px;
+    border: none;
+    border-bottom: 2px solid #e3e7e8;
+    outline: 0;
+    font-size: 18px;
+    margin-top: 20px;
+    padding: 3px 0;
+
+   
+
+}
+
+
+.inputFieldpassword{
+    
+    width: 100%;
+    height: 2dpx;
+    font-size: 18px;
+    border: none;
+    border-bottom: 2px solid #e3e7e8;
+    outline: 0;
+    margin-top: 20px;
+    padding: 3px 0;
+    
+
+}
+
+.checkbox{
+    margin-top: 40px;
+    cursor: pointer;
+    color: rgb(130, 127, 127);
+    
+}
+
+.textBody{
+    font-size: 16px;
+    font-weight: 300;
+    color: rgb(84, 81, 81);
+}
+
+.lostpass{
+    color: blue;
+    font-size: 16px;
+    font-weight: 300;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.passBut{
+    padding: 0 80px;
+    cursor: pointer;
+    margin-top: 20px;
+    height: 50px;
+    width: 100%;
+    border: none;
+    font-size: 15px;
+    background-color: #000000;
+    color: white;
+    box-shadow: 0 1px 1px rgba($color: #000000, $alpha: 0.6);
+
+}
+
+@media (max-width : 800px) {
+    .contantdiv{
+        margin: 2px;
+        width: 90%;
+        height: 80%;
+        
+    }
+    
+}
+
+@media (max-widtg : 2560px) {
+    .contantdiv{
+        width: 50%;
+    }
+    
+}
