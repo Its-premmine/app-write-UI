@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./App.scss";
 import {  useFormik } from "formik";
 import { account } from "./appwriteConfig";
+import Home from "./home/HomePage";
 
 const initialValues = {
     email: "",
@@ -90,6 +91,7 @@ const App = () => {
                 {action === "signin"?
                 
                 <div>
+                    <link id="header-logo" to="./home/HomePage"></link>
                 <input type="submit" className="passBut"  value="SIGN IN" />
                 </div>:
                 
