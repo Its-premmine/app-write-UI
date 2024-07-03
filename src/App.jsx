@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./App.scss";
 import {  useFormik } from "formik";
 import { account } from "./appwriteConfig";
-import Home from "./home/HomePage";
+
 
 const initialValues = {
     email: "",
@@ -16,11 +16,15 @@ const App = () => {
     const {values,handleSubmit,handleChange} = 
     useFormik({
         initialValues : initialValues,
+
+
         onSubmit : (values,action) => {
            account.create("unique()",values.email,values.password,values.userName)
            .then(Response => {
             console.log(Response);
            })
+
+           
             console.log(values);
             alert("successful.... Welcome")
             action.resetForm();
