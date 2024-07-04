@@ -10,5 +10,5 @@ client
 export const account = new Account(client);
 export const databases = new Databases(client);
 export      const  databasesId = "668423db00179e446362";
-export      const collectionId = "668423ec001b805decdd"
+export      const collectionId = "668423ec001b805decdd";
 export default client;    

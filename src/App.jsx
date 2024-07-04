@@ -23,18 +23,21 @@ const App = () => {
            .then(Response => {
             console.log(Response);
 
-           const response =  databases.createDocument(databasesId,collectionId,'unique()',{
+           const response =  databases.createDocument(databasesId,collectionId,'unique()',
+            
+            {
             email: values.email,
             password : values.password,
             userName: values.userName
 
            }) 
+
            console.log(response);
+
            })
 
            
             console.log(values);
-            alert("successful.... Welcome")
             action.resetForm();
         }
         
