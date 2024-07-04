@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.scss";
 import {  useFormik } from "formik";
-import { account } from "./appwriteConfig";
+import { account, databases, databasesId,collectionId } from "./appwriteConfig";
 
 
 const initialValues = {
@@ -18,10 +18,18 @@ const App = () => {
         initialValues : initialValues,
 
 
-        onSubmit : (values,action) => {
+        onSubmit :  (values,action) => {
            account.create("unique()",values.email,values.password,values.userName)
            .then(Response => {
             console.log(Response);
+
+           const response =  databases.createDocument(databasesId,collectionId,'unique()',{
+            email: values.email,
+            password : values.password,
+            userName: values.userName
+
+           }) 
+           console.log(response);
            })
 
            
