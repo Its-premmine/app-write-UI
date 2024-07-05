@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./App.scss";
 import {  useFormik } from "formik";
 import { account, databases, databasesId,collectionId } from "./appwriteConfig";
+import { valitySchema } from "./Yup";
 
 
 const initialValues = {
@@ -13,12 +14,15 @@ const initialValues = {
 
 const App = () => {
     const [action,setAction,] = useState("newAccount")
-    const {values,handleSubmit,handleChange} = 
+    const {values,handleSubmit,handleChange,touched,errors} = 
     useFormik({
+        validationSchema:valitySchema,
         initialValues : initialValues,
+        validateOnChange: true,
 
 
-        onSubmit :  (values,action) => {
+        onSubmit : async  (values,action) => {
+            
            account.create("unique()",values.email,values.password,values.userName)
            .then(Response => {
             console.log(Response);
@@ -74,6 +78,7 @@ const App = () => {
             </div>
                 }
 
+                        {errors.userName && touched.userName ? (<p className="err-show">{errors.userName}</p>):null}
                 
                 <input type="email" 
                     name = "email"
@@ -81,12 +86,18 @@ const App = () => {
                     onChange={handleChange}
                 className="inputField" placeholder="Username or email address " />
                                 
+                                {errors.email && touched.email ? (
+                      <p className="err-show">{errors.email}</p>
+                    ) : null}
+
                 <br />
                 <input type="password"
                     name="password"
                     value={values.password}
                     onChange={handleChange}
                 className="inputFieldpassword" placeholder="password" />
+
+                {errors.password && touched.password ?(<p className="err-show">{errors.password}</p>):null}
                 <br />
                 
                 {action === "signin"?<div>

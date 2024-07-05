@@ -150,6 +150,10 @@ body{
     box-shadow: 0 1px 1px rgba($color: #000000, $alpha: 0.6);
 
 }
+.err-show{
+    color: red;
+    font-size: 8px;
+}
 
 @media (max-width : 800px) {
     .contantdiv{
