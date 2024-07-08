@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+
+*,*::after,*::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+
+    font-family: "Poppins", sans-serif;
+
+}
+h1{
+    text-align: center;
+    width: 97%;
+    color: rgb(19, 19, 19);
+    font-size: 40px;
+    margin-bottom: 9px;
+}
+.secondHeadling{
+    text-align: center;
+    font-weight: 400;
+    color: gray;
+    font-size: 20px;
+}
+.mainBody{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.mybody{
+    height: 50vh;
+    width: 70%;
+}
+
+.headearTag{
+    
+    display: flex;
+    justify-content: end;
+    
+    justify-content: space-between;
+    background-color: #eff1fad9;
+    height: 40px;
+}
+.headerButton{
+    border-radius: 20px;
+    height: 30px;
+    width: 70px;
+    color: white;
+    text-align: center;
+    background-color: #1b1b1b;
+    font-size: 14px;
+    border-style: none;
+    border-color: transparent;
+    cursor: pointer;
+    margin: 5px;
+    margin-right: 100px;                
+}
+.headerButton1{
+    margin: 11px;
+    border-radius: 20px;
+    height: 40px;
+    width: 260px;
+    color: white;
+    text-align: center;
+    background-color: #1b1b1b;
+    font-size: 14px;
+    border-style: none;
+    border-color: transparent;
+    cursor: pointer;
+    
+                 
+}
+
+
+
+.chiImg{
+    position: relative;
+    padding-right: 20px;
+    left: 100px;
+}
+
+.mybody{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+
+@media  (max-width:420px ) {
+    .headerButton{
+        display: none;
+    }
+    .chiImg{
+        margin: 0;
+        position: relative;
+        left: 30px;    
+        padding: 0;
+        
+    }   
+}

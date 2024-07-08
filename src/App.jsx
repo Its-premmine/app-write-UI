@@ -3,6 +3,8 @@ import "./App.scss";
 import {  useFormik } from "formik";
 import { valitySchema } from "./Yup";
 import { Client ,Databases ,ID} from 'appwrite';
+import MyPage from "./MyPage";
+
 
 const client = new Client();
 
@@ -41,7 +43,7 @@ const App = () => {
         console.log(error);
     })
             console.log(values);
-            
+            <MyPage/>
             action.resetForm();
         }
         
