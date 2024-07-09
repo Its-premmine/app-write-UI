@@ -4,7 +4,7 @@ import {  useFormik } from "formik";
 import { valitySchema } from "./Yup";
 import { Client ,Databases ,ID} from 'appwrite';
 import MyPage from "./MyPage";
-
+// import { Navigate } from "react-router-dom";
 
 const client = new Client();
 
