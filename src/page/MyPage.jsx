@@ -6,12 +6,13 @@ const MyPage = () => {
     const navigate = useNavigate();
     const handleLogout = () => {
         navigate('/')
+
     }
     return(
         <div >
             
             <div className="headearTag">
-            
+              
             <img src="https://framerusercontent.com/images/ba9osFXOxT2jz5pagZ7lDhnZDw.svg" alt="" className="chiImg" />
             <input type="button" value="Logout" className="headerButton" onClick={handleLogout}/>
             </div>

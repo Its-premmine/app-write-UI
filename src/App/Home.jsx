@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useFormik } from "formik";
 import "./App.scss"
 import { useNavigate  } from "react-router-dom";
-import { valitySchema } from "./Yup";
-import {StoreData} from "./appwriteConfig";
+import { valitySchema } from "../store&validation/Yup";
+import {StoreData} from "../store&validation/appwriteConfig";
 
 
 const initialValues = {
