@@ -1,10 +1,20 @@
 import React from "react";
 import "./MyPage.scss"
 import { useNavigate } from "react-router-dom";
+import { useSnackbar } from "notistack";
 
 const MyPage = () => {
+    const {enqueueSnackbar} = useSnackbar();
     const navigate = useNavigate();
     const handleLogout = () => {
+        enqueueSnackbar('back to loging',{
+            variant:'success',
+            autoHideDuration:2000,
+            anchorOrigin:{
+                vertical:'top',
+                horizontal:'right'
+            }
+        })
         navigate('/')
 
     }

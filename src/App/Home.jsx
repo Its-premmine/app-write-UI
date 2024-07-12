@@ -4,7 +4,7 @@ import "./App.scss"
 import { useNavigate  } from "react-router-dom";
 import { valitySchema } from "../store&validation/Yup";
 import {StoreData} from "../store&validation/appwriteConfig";
-
+import { useSnackbar } from "notistack";
 
 const initialValues = {
     email: "",
@@ -13,6 +13,7 @@ const initialValues = {
         
 }
 const CreatAcc = () => {
+        const {enqueueSnackbar} = useSnackbar();
         const Navigate = useNavigate()
         const [action,setAction,] = useState("newAccount")
         const {values,handleSubmit,handleChange,errors,touched} = 
@@ -22,6 +23,19 @@ const CreatAcc = () => {
     
     
             onSubmit : (values,action) => {
+
+
+                
+                enqueueSnackbar('welcome to website',{
+                    variant:'success',
+                    autoHideDuration:1500,
+                    anchorOrigin:{
+                        vertical:'top',
+                        horizontal:'right'
+                    }
+                })
+                
+
                 console.log(values);
                 StoreData(values);
                 action.resetForm();
@@ -48,7 +62,7 @@ const CreatAcc = () => {
                       
                       
                         </div>
-                    {action === "signin"?<div></div>:
+                    {action !== "signin" && 
                         
                     <div>
                     <input type="text" 

@@ -11,6 +11,7 @@
     "model": "^6.0.1",
     "modul": "^0.0.1",
     "node": "^22.4.0",
+    "notistack": "^3.0.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.24.1",
