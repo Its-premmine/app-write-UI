@@ -3,8 +3,10 @@ import { useFormik } from "formik";
 import "./App.scss"
 import { useNavigate  } from "react-router-dom";
 import { valitySchema } from "../store&validation/Yup";
-import {StoreData} from "../store&validation/appwriteConfig";
+import {databases, StoreData,Query} from "../store&validation/appwriteConfig";
 import { useSnackbar } from "notistack";
+
+
 
 const initialValues = {
     email: "",
@@ -19,27 +21,62 @@ const CreatAcc = () => {
         const {values,handleSubmit,handleChange,errors,touched} = 
         useFormik({
             initialValues : initialValues,
-            validationSchema:valitySchema,
+            validationSchema:valitySchema(action),
     
     
-            onSubmit : (values,action) => {
-
-
-                
-                enqueueSnackbar('welcome to website',{
-                    variant:'success',
-                    autoHideDuration:1500,
-                    anchorOrigin:{
-                        vertical:'top',
-                        horizontal:'right'
+            onSubmit : async (values,{resetForm}) => {
+                if (action === "signin"){
+                    
+                    const response = await databases.listDocuments(
+                        "668ab77b001ae572b355",
+                        "668ab7bc000476fde865",
+                        [
+                            Query.equal('email', values.email),
+                            Query.equal('password', values.password)
+                        ]
+                    );
+                    if (response.total > 0){
+                        
+                        Navigate ('/page')
+                        enqueueSnackbar('welcome to website',{
+                            variant:'success',
+                            autoHideDuration:1500,
+                            anchorOrigin:{
+                                vertical:'top',
+                                horizontal:'right'
+                            }
+                        })
+                    }else{
+                        
+                        Navigate ("/")
+                        enqueueSnackbar('Try Agaim',{
+                            variant: 'eroor',
+                            autoHideDuration:1000,
+                            anchorOrigin:{
+                                vertical:'top',
+                                horizontal:'right'
+                            }
+                        })
                     }
-                })
+                    
+                }else{
+                    StoreData(values)
+                    Navigate('/page');
+                    enqueueSnackbar('welcome to website',{
+                        variant:'success',
+                        autoHideDuration:1500,
+                        anchorOrigin:{
+                            vertical:'top',
+                            horizontal:'right'
+                        }
+                    })
+                }
                 
-
                 console.log(values);
-                StoreData(values);
-                action.resetForm();
-                Navigate('/page');
+                resetForm();
+                
+                
+                
             }
             
         })
@@ -106,16 +143,15 @@ const CreatAcc = () => {
                     <br />
                     {action === "signin"?<p></p>:<p className="textBody">Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our privacy policy.</p>}
                     
-                    {action === "signin"?
+                    
                     
                     <div>
-                    <input type="submit" className="passBut"  value="SIGN IN" />
-                    </div>:
-                    
-                    <div>
-                    <input type="submit" className="passBut"  value="SIGN UP" />
+                        <button type="submit" className="passBut"> 
+                            {action === "signin" ? "SIGN IN" : "SIGN UP"}
+                        </button>
+
                     </div>
-                    }
+                    
                     
                     <br />
                     {action === "newAccount"?<span></span>:<span className="lostpass"><u>LOST YOUR PASSWORD?</u></span>}

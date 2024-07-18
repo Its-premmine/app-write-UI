@@ -1,4 +1,4 @@
-import { Client ,Databases ,ID} from 'appwrite';
+import { Client ,Databases ,ID,Query} from 'appwrite';
 
 
 const client = new Client();
@@ -24,3 +24,5 @@ promise.then(function(response){
 })
 
 }
+
+export {databases,Query}
