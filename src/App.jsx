@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router,Route,Routes } from "react-router-dom"
 import MyPage from "./page/MyPage";
 import CreatAcc from "./App/Home";
+import PrivatePage from "./privateroute/PrivatPage";
 
 const App = () => {
     
@@ -9,9 +10,11 @@ const App = () => {
         
         <Router>
             <Routes>
-                <Route path="/page" element={<MyPage/>}/>
-                <Route path="/" element={<CreatAcc/>}/>
                 
+                <Route path="/" element={<CreatAcc/>}/>
+                <Route path="/users" element={<PrivatePage/>} >
+                <Route path="page" element={<MyPage/>}/>
+                </Route>
             </Routes>
         </Router>
     )
